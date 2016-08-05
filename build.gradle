@@ -3,10 +3,14 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+ext {
+    neo4jVersion = "3.0"
 }
 
 // ディレクトリ作成
@@ -19,5 +23,8 @@ task mkdirs << {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compileOnly group: 'org.neo4j', name: 'neo4j', version: "${neo4jVersion}"
+    testCompile group: 'org.neo4j.test', name: 'neo4j-harness', version: "${neo4jVersion}"
+    testCompile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.0-SNAPSHOT'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
