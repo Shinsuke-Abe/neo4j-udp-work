@@ -18,7 +18,7 @@ public class ListNearbyScore {
     @Context
     public Log log;
 
-    @Procedure("myprop.list_nearby_sore")
+    @Procedure("myprop.list_nearby_score")
     @PerformsWrites
     public Stream<CalculatedScore> listNearbyScore(@Name("baseList") List<String> baseList, @Name("targetList") List<String> targetList) {
         return Stream.of(new CalculatedScore(baseList.stream().sorted().filter(item -> targetList.contains(item)).count()));

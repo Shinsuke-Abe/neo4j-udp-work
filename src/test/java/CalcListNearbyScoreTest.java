@@ -26,7 +26,7 @@ public class CalcListNearbyScoreTest {
 
             Session session = driver.session();
 
-            StatementResult result = session.run("CALL myprop.list_nearby_sore", parameters("baseList", list1, "targetList", list2));
+            StatementResult result = session.run("CALL myprop.list_nearby_score", parameters("baseList", list1, "targetList", list2));
             assertThat(result.single().get("score").asLong(), is(2L));
         }
     }
