@@ -32,6 +32,7 @@ public class FullTextIndex {
 
     // 全文検索インデックスのサーチを自力で行う検索プロシジャ
     // 戻り値はレコードのStreamで、レコードはプロシジャごとに定義する
+    // publicでnon-finalなフィールドを持つクラスでなければダメ > プリミティブとかでは返せない
     // プロシジャのパラメータ名はNameアノテーションで指定
     // パラメータに使えるのは、String,Long,Double,Number,Boolean,Map,List,Object
     @Procedure("example.search") // プロシジャのnamespace指定
